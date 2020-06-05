@@ -59,7 +59,7 @@ exports.needsToScan = function (waPage) {
 };
 exports.isInsideChat = function (waPage) {
     return rxjs_1.from(waPage
-        .waitForFunction("\n        document.getElementsByClassName('app')[0] &&\n        document.getElementsByClassName('app')[0].attributes &&\n        !!document.getElementsByClassName('app')[0].attributes.tabindex\n        ", {
+        .waitForFunction("(document.getElementsByClassName('app')[0] && document.getElementsByClassName('app')[0].attributes && !!document.getElementsByClassName('app')[0].attributes.tabindex) || (document.getElementsByClassName('two')[0] && document.getElementsByClassName('two')[0].attributes && !!document.getElementsByClassName('two')[0].attributes.tabindex)", {
         timeout: 0,
     })
         .then(function () { return true; }));
